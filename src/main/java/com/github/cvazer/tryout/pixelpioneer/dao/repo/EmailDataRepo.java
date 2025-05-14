@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EmailDataRepo extends JpaRepository<EmailDataEntity, Long> {
+
+    boolean existsByValue(String value);
+
 }
