@@ -20,7 +20,11 @@ public class ErrorHandlingAdvice {
     @ExceptionHandler(ApiException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ApiResponse<Void> apiExceptionHandler(ApiException e) {
-        log.debug(e.getMessage(), e);
+        if (e.print) {
+            log.info(e.getMessage(), e);
+        } else {
+            log.debug(e.getMessage(), e);
+        }
         return new ApiResponse<>(e);
     }
 
