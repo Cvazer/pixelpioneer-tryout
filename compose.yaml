@@ -1,0 +1,32 @@
+services:
+
+  application:
+    build: .
+    container_name: tryout-yan-f-application
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      tryout-yan-f:
+        ipv4_address: 100.20.10.1
+
+  postgres:
+    image: postgres:latest
+    container_name: tryout-yan-f-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+    networks:
+      tryout-yan-f:
+        ipv4_address: 100.20.20.1
+
+networks:
+
+  tryout-yan-f:
+    name: tryout-yan-f
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 100.20.0.0/16
