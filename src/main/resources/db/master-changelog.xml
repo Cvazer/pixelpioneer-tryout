@@ -9,5 +9,6 @@
     <include file="scripts/14-05-25-Yan-F-2-account-table.sql" relativeToChangelogFile="true"/>
     <include file="scripts/14-05-25-Yan-F-3-email-data-table.sql" relativeToChangelogFile="true"/>
     <include file="scripts/14-05-25-Yan-F-4-phone-data-table.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/14-05-25-Yan-F-5-user-data.sql" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
