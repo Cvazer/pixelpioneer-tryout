@@ -5,4 +5,9 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
 
+    <include file="scripts/14-05-25-Yan-F-1-user-table.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/14-05-25-Yan-F-2-account-table.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/14-05-25-Yan-F-3-email-data-table.sql" relativeToChangelogFile="true"/>
+    <include file="scripts/14-05-25-Yan-F-4-phone-data-table.sql" relativeToChangelogFile="true"/>
+
 </databaseChangeLog>
