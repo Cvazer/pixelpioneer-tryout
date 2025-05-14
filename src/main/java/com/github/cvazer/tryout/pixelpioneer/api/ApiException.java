@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ApiException extends RuntimeException {
     protected boolean print = true;
+    protected Integer code;
 
     public ApiException(String message) {
         super(message);

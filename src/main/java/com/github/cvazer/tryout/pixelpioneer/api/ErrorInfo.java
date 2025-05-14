@@ -3,6 +3,8 @@ package com.github.cvazer.tryout.pixelpioneer.api;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Optional;
+
 @Getter
 @RequiredArgsConstructor
 public class ErrorInfo {
@@ -19,4 +21,9 @@ public class ErrorInfo {
     public ErrorInfo(Throwable ex) {
         this(DEFAULT_ERROR_CODE, ex.getMessage());
     }
+
+    public ErrorInfo(ApiException ex) {
+        this(Optional.ofNullable(ex.getCode()).orElse(DEFAULT_ERROR_CODE), ex.getMessage());
+    }
+
 }

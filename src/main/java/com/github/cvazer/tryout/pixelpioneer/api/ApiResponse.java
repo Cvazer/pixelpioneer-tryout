@@ -25,4 +25,9 @@ public class ApiResponse<T>{
     public ApiResponse(Throwable throwable) {
         this(new ErrorInfo(throwable), null);
     }
+
+    public ApiResponse(ApiException throwable) {
+        this(new ErrorInfo(throwable), null);
+    }
+
 }
