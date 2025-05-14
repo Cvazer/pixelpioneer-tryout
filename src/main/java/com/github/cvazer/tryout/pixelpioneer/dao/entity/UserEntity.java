@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cache;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -17,6 +19,8 @@ import static javax.persistence.CascadeType.ALL;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "`user`")
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class UserEntity {
     private String name;
     private LocalDate dateOfBirth;
@@ -30,9 +34,11 @@ public class UserEntity {
     @JoinColumn(name = "id", referencedColumnName = "user_id")
     private AccountEntity account;
 
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @OneToMany(cascade = ALL, orphanRemoval = true, mappedBy = "user")
     private Set<EmailDataEntity> emails;
 
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @OneToMany(cascade = ALL, orphanRemoval = true, mappedBy = "user")
     private Set<PhoneDataEntity> phones;
 }

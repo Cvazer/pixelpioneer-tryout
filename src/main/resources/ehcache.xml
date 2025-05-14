@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.ehcache.org/v3"
+        xsi:schemaLocation="http://www.ehcache.org/v3 https://www.ehcache.org/schema/ehcache-core-3.0.xsd">
+
+    <cache-template name="entity">
+        <expiry><ttl unit="minutes">30</ttl></expiry>
+        <heap>5000</heap>
+    </cache-template>
+
+    <cache-template name="collection">
+        <expiry><ttl unit="minutes">15</ttl></expiry>
+        <heap>5000</heap>
+    </cache-template>
+
+    <cache
+            alias="com.github.cvazer.tryout.pixelpioneer.dao.entity.PhoneDataEntity"
+            uses-template="entity">
+    </cache>
+
+    <cache
+            alias="com.github.cvazer.tryout.pixelpioneer.dao.entity.UserEntity"
+            uses-template="entity">
+    </cache>
+
+    <cache
+            alias="com.github.cvazer.tryout.pixelpioneer.dao.entity.EmailDataEntity"
+            uses-template="entity">
+    </cache>
+
+    <cache
+            alias="com.github.cvazer.tryout.pixelpioneer.dao.entity.UserEntity.emails"
+            uses-template="collection">
+    </cache>
+
+    <cache
+            alias="com.github.cvazer.tryout.pixelpioneer.dao.entity.UserEntity.phones"
+            uses-template="collection">
+    </cache>
+
+    <cache
+            alias="com.github.cvazer.tryout.pixelpioneer.dao.entity.AccountEntity"
+            uses-template="entity">
+
+        <!--seconds is default unit-->
+        <expiry><ttl>30</ttl></expiry>
+
+    </cache>
+</config>
