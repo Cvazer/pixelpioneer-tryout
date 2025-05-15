@@ -7,6 +7,7 @@ services:
       - "8080:8080"
     depends_on:
       - postgres
+      - redis
     networks:
       tryout-yan-f:
         ipv4_address: 100.20.10.1
