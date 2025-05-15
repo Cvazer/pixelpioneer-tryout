@@ -13,6 +13,16 @@
         <heap>5000</heap>
     </cache-template>
 
+    <cache alias="default-query-results-region">
+        <expiry><ttl unit="minutes">30</ttl></expiry>
+        <heap>1000</heap>
+    </cache>
+
+    <cache alias="default-update-timestamps-region">
+        <expiry><none/></expiry>
+        <heap>1000</heap>
+    </cache>
+
     <cache
             alias="com.github.cvazer.tryout.pixelpioneer.dao.entity.PhoneDataEntity"
             uses-template="entity">
