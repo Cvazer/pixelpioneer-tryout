@@ -1,4 +1,4 @@
-package com.github.cvazer.tryout.pixelpioneer.service.facade;
+package com.github.cvazer.tryout.pixelpioneer.service.facade.userdata;
 
 import com.github.cvazer.tryout.pixelpioneer.api.ApiException;
 

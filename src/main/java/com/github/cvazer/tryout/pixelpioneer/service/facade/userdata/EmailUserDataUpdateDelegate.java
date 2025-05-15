@@ -5,7 +5,6 @@ import com.github.cvazer.tryout.pixelpioneer.api.mapper.EmailDataMapper;
 import com.github.cvazer.tryout.pixelpioneer.dao.entity.EmailDataEntity;
 import com.github.cvazer.tryout.pixelpioneer.dao.entity.UserEntity;
 import com.github.cvazer.tryout.pixelpioneer.dao.repo.EmailDataRepo;
-import com.github.cvazer.tryout.pixelpioneer.service.facade.UserDataIsNotAvailable;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
