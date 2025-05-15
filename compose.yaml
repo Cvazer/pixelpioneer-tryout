@@ -20,6 +20,13 @@ services:
       tryout-yan-f:
         ipv4_address: 100.20.20.1
 
+  redis:
+    image: redis:latest
+    container_name: tryout-yan-f-redis
+    networks:
+      tryout-yan-f:
+        ipv4_address: 100.20.30.1
+
 networks:
 
   tryout-yan-f:

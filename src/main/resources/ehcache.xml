@@ -39,7 +39,7 @@
     </cache>
 
     <cache
-            alias="com.github.cvazer.tryout.pixelpioneer.dao.entity.AccountEntity"
+            alias="account_entity"
             uses-template="entity">
 
         <!--seconds is default unit-->

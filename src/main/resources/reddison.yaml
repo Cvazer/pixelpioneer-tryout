@@ -1,0 +1,2 @@
+singleServerConfig:
+  address: "redis://100.20.30.1:6379"

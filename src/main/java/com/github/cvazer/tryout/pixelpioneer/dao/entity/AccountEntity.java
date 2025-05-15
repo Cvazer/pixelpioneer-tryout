@@ -18,7 +18,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @AllArgsConstructor
 @Table(name = "account")
 @Cacheable
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(region = "account_entity", usage = CacheConcurrencyStrategy.READ_WRITE)
 public class AccountEntity {
     private BigDecimal balance;
 
