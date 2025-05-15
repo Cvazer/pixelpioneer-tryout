@@ -22,11 +22,11 @@ insert into email_data(user_id, email)
 values (3, 'user3-1@exmaple.com');
 
 insert into phone_data(user_id, phone)
-values (1, '+375252020327'),
-       (1, '+375259009910');
+values (1, '79207865432'),
+       (1, '78312225402');
 
 insert into phone_data(user_id, phone)
-values (2, '+375291002030');
+values (2, '73955956735');
 
 insert into phone_data(user_id, phone)
-values (3, '+375444005060');
+values (3, '74952520291');

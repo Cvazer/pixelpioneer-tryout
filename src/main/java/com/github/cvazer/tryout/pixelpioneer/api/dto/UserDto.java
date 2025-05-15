@@ -10,12 +10,16 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
 
 @Getter
 @Setter
-public class UserDto {
+public class UserDto implements Serializable {
+
+    //language=RegExp
+    public static final String PHONE_PATTERN = "^[0-9]{0,13}$";
 
     @JsonIgnore
     private Long id;
@@ -32,7 +36,7 @@ public class UserDto {
     private Set<@Email String> emails;
 
     @Size(min = 1)
-    private Set<@NotNull @Pattern(regexp = "^\\+375[0-9]{9}$") String> phones;
+    private Set<@NotNull @Pattern(regexp = PHONE_PATTERN) String> phones;
 
     @JsonProperty
     public Long getId() {
