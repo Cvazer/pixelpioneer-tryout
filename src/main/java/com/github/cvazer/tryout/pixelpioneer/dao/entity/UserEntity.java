@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.FieldNameConstants;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Cache;
 
@@ -19,6 +20,7 @@ import static javax.persistence.CascadeType.ALL;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "`user`")
+@FieldNameConstants
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class UserEntity {
@@ -41,4 +43,5 @@ public class UserEntity {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @OneToMany(cascade = ALL, orphanRemoval = true, mappedBy = "user")
     private Set<PhoneDataEntity> phones;
+
 }

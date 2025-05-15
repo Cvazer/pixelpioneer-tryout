@@ -4,9 +4,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import java.io.Serializable;
+
 @Getter
 @RequiredArgsConstructor
-public class ApiResponse<T>{
+public class ApiResponse<T> implements Serializable {
     private final ErrorInfo errorInfo;
     private final @JsonInclude(JsonInclude.Include.NON_NULL) T data;
 

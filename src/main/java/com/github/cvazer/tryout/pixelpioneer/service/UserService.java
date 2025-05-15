@@ -1,6 +1,8 @@
 package com.github.cvazer.tryout.pixelpioneer.service;
 
+import com.github.cvazer.tryout.pixelpioneer.api.dto.SearchUserRq;
 import com.github.cvazer.tryout.pixelpioneer.dao.entity.UserEntity;
+import org.springframework.data.domain.Page;
 
 public interface UserService {
 
@@ -11,4 +13,9 @@ public interface UserService {
      */
     UserEntity getCurrentUser() throws IllegalStateException;
 
+    /**
+     * @return {@link org.springframework.data.domain.Page} that contains entities that
+     * correspond to given parameters
+     */
+    Page<UserEntity> search(SearchUserRq rq);
 }

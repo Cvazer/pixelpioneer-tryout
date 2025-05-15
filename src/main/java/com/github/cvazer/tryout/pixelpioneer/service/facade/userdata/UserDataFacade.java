@@ -1,5 +1,7 @@
 package com.github.cvazer.tryout.pixelpioneer.service.facade.userdata;
 
+import com.github.cvazer.tryout.pixelpioneer.api.dto.SearchUserRq;
+import com.github.cvazer.tryout.pixelpioneer.api.dto.SearchUserRs;
 import com.github.cvazer.tryout.pixelpioneer.api.dto.UserDto;
 import com.github.cvazer.tryout.pixelpioneer.api.mapper.UserMapper;
 import com.github.cvazer.tryout.pixelpioneer.dao.repo.UserRepo;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -31,4 +34,16 @@ public class UserDataFacade {
         return userMapper.toDto(userRepo.save(userEntity));
     }
 
+    @Transactional
+    public SearchUserRs search(SearchUserRq rq) {
+        var resultPage = userService.search(rq);
+        return new SearchUserRs(
+                resultPage.getContent().stream()
+                        .map(userMapper::toDto)
+                        .collect(Collectors.toSet()),
+                resultPage.getNumber(),
+                resultPage.getSize(),
+                resultPage.getTotalPages()
+        );
+    }
 }

@@ -6,12 +6,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+
+import lombok.experimental.FieldNameConstants;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Getter
 @Setter
+@FieldNameConstants
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "email_data")

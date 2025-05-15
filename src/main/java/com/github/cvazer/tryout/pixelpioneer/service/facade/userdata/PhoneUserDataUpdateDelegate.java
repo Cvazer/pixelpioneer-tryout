@@ -5,7 +5,6 @@ import com.github.cvazer.tryout.pixelpioneer.api.mapper.PhoneDataMapper;
 import com.github.cvazer.tryout.pixelpioneer.dao.entity.PhoneDataEntity;
 import com.github.cvazer.tryout.pixelpioneer.dao.entity.UserEntity;
 import com.github.cvazer.tryout.pixelpioneer.dao.repo.PhoneDataRepo;
-import com.github.cvazer.tryout.pixelpioneer.service.facade.UserDataIsNotAvailable;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

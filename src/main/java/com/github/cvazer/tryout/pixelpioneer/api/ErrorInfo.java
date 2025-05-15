@@ -3,11 +3,12 @@ package com.github.cvazer.tryout.pixelpioneer.api;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Optional;
 
 @Getter
 @RequiredArgsConstructor
-public class ErrorInfo {
+public class ErrorInfo implements Serializable {
     public static final int OK_CODE = 0;
     public static final int DEFAULT_ERROR_CODE = 1;
 
