@@ -22,6 +22,9 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 public class AccountEntity {
     private BigDecimal balance;
 
+    @Column(insertable = false, updatable = false)
+    private long userId;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
