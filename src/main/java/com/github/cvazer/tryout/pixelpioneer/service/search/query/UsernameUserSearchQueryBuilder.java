@@ -1,6 +1,6 @@
-package com.github.cvazer.tryout.pixelpioneer.service.search;
+package com.github.cvazer.tryout.pixelpioneer.service.search.query;
 
-import com.github.cvazer.tryout.pixelpioneer.api.dto.SearchUserRq;
+import com.github.cvazer.tryout.pixelpioneer.service.model.SearchUserParams;
 import com.github.cvazer.tryout.pixelpioneer.dao.entity.UserEntity;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class UsernameUserSearchQueryBuilder extends BaseUserSearchQueryBuilder {
 
     @Override
-    protected Specification<UserEntity> createSpecification(SearchUserRq rq) {
+    protected Specification<UserEntity> createSpecification(SearchUserParams rq) {
         if (rq.getName() == null) return null;
         return (root, query, cb) ->
                 cb.like(root.get(UserEntity.Fields.name), rq.getName()+"%");

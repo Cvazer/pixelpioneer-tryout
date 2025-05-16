@@ -1,6 +1,6 @@
 package com.github.cvazer.tryout.pixelpioneer.service;
 
-import com.github.cvazer.tryout.pixelpioneer.api.dto.SearchUserRq;
+import com.github.cvazer.tryout.pixelpioneer.service.model.SearchUserParams;
 import com.github.cvazer.tryout.pixelpioneer.dao.entity.UserEntity;
 import org.springframework.data.domain.Page;
 
@@ -17,5 +17,5 @@ public interface UserService {
      * @return {@link org.springframework.data.domain.Page} that contains entities that
      * correspond to given parameters
      */
-    Page<UserEntity> search(SearchUserRq rq);
+    Page<UserEntity> search(SearchUserParams rq);
 }

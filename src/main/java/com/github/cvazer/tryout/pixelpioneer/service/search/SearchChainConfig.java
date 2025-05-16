@@ -1,5 +1,7 @@
 package com.github.cvazer.tryout.pixelpioneer.service.search;
 
+import com.github.cvazer.tryout.pixelpioneer.service.search.query.BaseUserSearchQueryBuilder;
+import com.github.cvazer.tryout.pixelpioneer.service.search.query.UserSearchQueryBuilderChain;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;

@@ -1,7 +1,8 @@
-package com.github.cvazer.tryout.pixelpioneer.service.facade.userdata;
+package com.github.cvazer.tryout.pixelpioneer.service.facade.userdata.update;
 
 import com.github.cvazer.tryout.pixelpioneer.api.dto.UserDto;
 import com.github.cvazer.tryout.pixelpioneer.dao.entity.UserEntity;
+import com.github.cvazer.tryout.pixelpioneer.service.facade.userdata.UserDataIsNotAvailable;
 
 import java.util.Collection;
 import java.util.stream.Collectors;

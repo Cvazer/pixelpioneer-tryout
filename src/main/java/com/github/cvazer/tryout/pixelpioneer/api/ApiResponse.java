@@ -9,6 +9,8 @@ import java.io.Serializable;
 @Getter
 @RequiredArgsConstructor
 public class ApiResponse<T> implements Serializable {
+    public static final String DATE_PATTERN = "yyyy.MM.dd";
+
     private final ErrorInfo errorInfo;
     private final @JsonInclude(JsonInclude.Include.NON_NULL) T data;
 

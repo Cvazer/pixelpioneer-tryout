@@ -3,9 +3,13 @@ package com.github.cvazer.tryout.pixelpioneer.api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import javax.validation.ConstraintViolation;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RestControllerAdvice
@@ -30,11 +34,28 @@ public class ErrorHandlingAdvice {
         return new ApiResponse<>(e);
     }
 
-    @ExceptionHandler
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiResponse<Void> validationBindException(BindException e) {
+    @ExceptionHandler(DateParsingException.class)
+    public ApiResponse<Void> dateParsingException(DateParsingException e) {
+        return validationBindException(e);
+    }
+
+    @ExceptionHandler(BindException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiResponse<Void> validationBindException(Exception e) {
         log.trace(e.getMessage(), e);
-        return new ApiResponse<>(new ErrorInfo(VALIDATION_ERROR_CODE, "Malformed request parameter"));
+        return new ApiResponse<>(new ErrorInfo(VALIDATION_ERROR_CODE, e.getMessage()));
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiResponse<Void> methodArgumentNotValid(MethodArgumentNotValidException e) {
+        log.trace(e.getMessage(), e);
+        var msg = e.getBindingResult().getAllErrors().stream()
+                .map(err -> err.unwrap(ConstraintViolation.class))
+                .map(it -> String.format("%s: %s", it.getPropertyPath().toString(), it.getMessage()))
+                .collect(Collectors.joining(";\n"));
+        return new ApiResponse<>(new ErrorInfo(VALIDATION_ERROR_CODE, msg));
     }
 
 }

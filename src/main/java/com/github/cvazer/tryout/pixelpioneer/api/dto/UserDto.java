@@ -14,6 +14,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
 
+import static com.github.cvazer.tryout.pixelpioneer.api.ApiResponse.DATE_PATTERN;
+
 @Getter
 @Setter
 public class UserDto implements Serializable {
@@ -29,7 +31,7 @@ public class UserDto implements Serializable {
 
     private String name;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATE_PATTERN)
     private LocalDate dateOfBirth;
 
     @Size(min = 1)

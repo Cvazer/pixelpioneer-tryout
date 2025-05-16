@@ -53,7 +53,7 @@ public class AccountServiceImpl implements AccountService {
         accountRepo.save(recipientAccount);
 
         log.debug("User [{}] transfers [{}] amount from his account id=[{}] to user's [{}] account [{}]." +
-                "New user's balance is [{}] and recipient's balance is [{}]",
+                " New user's balance is [{}] and recipient's balance is [{}]",
                 userAccount.getUserId(), bigDecimalAmount, userAccount.getId(),
                 recipientAccount.getUserId(), recipientAccount.getId(),
                 userAccount.getBalance(), recipientAccount.getBalance());

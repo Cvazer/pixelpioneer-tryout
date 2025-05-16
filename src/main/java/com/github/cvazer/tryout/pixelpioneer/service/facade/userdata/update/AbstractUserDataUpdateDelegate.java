@@ -1,4 +1,4 @@
-package com.github.cvazer.tryout.pixelpioneer.service.facade.userdata;
+package com.github.cvazer.tryout.pixelpioneer.service.facade.userdata.update;
 
 import org.apache.commons.lang3.tuple.Pair;
 
