@@ -19,7 +19,6 @@ import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 })
 public interface UserMapper {
 
-//    @AnnotateWith(Transactional.class)
     @Mapping(target = "balance", source = "account", qualifiedByName = "accountToBalance")
     UserDto toDto(UserEntity user);
 
