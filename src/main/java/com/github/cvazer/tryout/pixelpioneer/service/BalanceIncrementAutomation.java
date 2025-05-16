@@ -31,7 +31,7 @@ public class BalanceIncrementAutomation {
     @Scheduled(fixedRate = 10, timeUnit = TimeUnit.SECONDS)
     @CacheEvict(value = SEARCH_CACHE_KEY)
     public void update() {
-        log.debug("Auto increment account balance is running now");
+        log.trace("Auto increment account balance is running now");
         LocalDateTime lastRun = (LocalDateTime) template.opsForValue().get(LAST_RUN_KEY);
         var now = LocalDateTime.now();
 
@@ -41,7 +41,7 @@ public class BalanceIncrementAutomation {
         }
 
         if (lastRun.plusSeconds(30).isAfter(now)) {
-            log.debug("Too soon, Aborting auto increment");
+            log.trace("Too soon, Aborting auto increment");
             return;
         }
 
