@@ -1,6 +1,6 @@
 package com.github.cvazer.tryout.pixelpioneer.service.impl;
 
-import com.github.cvazer.tryout.pixelpioneer.service.model.SearchUserParams;
+import com.github.cvazer.tryout.pixelpioneer.api.dto.SearchUserParams;
 import com.github.cvazer.tryout.pixelpioneer.dao.entity.UserEntity;
 import com.github.cvazer.tryout.pixelpioneer.dao.repo.UserRepo;
 import com.github.cvazer.tryout.pixelpioneer.security.AuthUtils;

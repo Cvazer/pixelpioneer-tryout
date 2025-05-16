@@ -1,14 +1,12 @@
-package com.github.cvazer.tryout.pixelpioneer.security;
+package com.github.cvazer.tryout.pixelpioneer.config;
 
+import com.github.cvazer.tryout.pixelpioneer.security.SecurityKeyProvider;
 import com.nimbusds.jose.JOSEException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,12 +20,23 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    private static final String[] SWAGGER_ENDPIONTS = {
+            "/authenticate",
+            "/swagger-resources/**",
+            "/swagger-ui/**",
+            "/v3/api-docs",
+            "/webjars/**"
+    };
+
     @Bean
     public SecurityFilterChain customSecurityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
                     .antMatchers("/login").permitAll()
                     .antMatchers("/api/**").authenticated()
+                .and()
+                .authorizeHttpRequests()
+                .antMatchers(SWAGGER_ENDPIONTS).permitAll()
                 .and()
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

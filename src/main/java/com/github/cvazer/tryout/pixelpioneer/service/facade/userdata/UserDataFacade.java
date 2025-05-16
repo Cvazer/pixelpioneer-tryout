@@ -1,13 +1,13 @@
 package com.github.cvazer.tryout.pixelpioneer.service.facade.userdata;
 
 import com.github.cvazer.tryout.pixelpioneer.api.DateParsingException;
+import com.github.cvazer.tryout.pixelpioneer.api.dto.SearchUserParams;
+import com.github.cvazer.tryout.pixelpioneer.api.dto.SearchUserResult;
 import com.github.cvazer.tryout.pixelpioneer.api.dto.UserDto;
 import com.github.cvazer.tryout.pixelpioneer.api.mapper.UserMapper;
 import com.github.cvazer.tryout.pixelpioneer.dao.repo.UserRepo;
 import com.github.cvazer.tryout.pixelpioneer.service.UserService;
 import com.github.cvazer.tryout.pixelpioneer.service.facade.userdata.update.UserDataUpdateDelegate;
-import com.github.cvazer.tryout.pixelpioneer.service.model.SearchUserParams;
-import com.github.cvazer.tryout.pixelpioneer.service.model.SearchUserResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
@@ -23,7 +23,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static com.github.cvazer.tryout.pixelpioneer.api.ApiResponse.DATE_PATTERN;
-import static com.github.cvazer.tryout.pixelpioneer.service.model.SearchUserParams.DEFAULT_PAGE_SIZE;
+import static com.github.cvazer.tryout.pixelpioneer.api.dto.SearchUserParams.DEFAULT_PAGE_SIZE;
 
 @Component
 @RequiredArgsConstructor

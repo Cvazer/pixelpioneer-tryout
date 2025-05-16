@@ -1,6 +1,7 @@
-package com.github.cvazer.tryout.pixelpioneer.service.model;
+package com.github.cvazer.tryout.pixelpioneer.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,21 +22,27 @@ public class SearchUserParams {
     public static final int DEFAULT_PAGE_SIZE = 10;
 
     @Min(0)
+    @Schema(example = "1")
     private int page;
 
     @Min(0)
     @Max(100)
+    @Schema(example = "10")
     private int pageSize;
 
+    @Schema(example = "User")
     @Pattern(regexp = "^[^%\\s]{1,500}$")
     private String name;
 
+    @Schema(example = "1997.01.01")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATE_PATTERN)
     private LocalDate dateOfBirth;
 
     @Email
+    @Schema(example = "user1-1@exmaple.com")
     private String email;
 
+    @Schema(example = "73955956735")
     @Pattern(regexp = PHONE_PATTERN)
     private String phone;
 

@@ -1,7 +1,6 @@
-package com.github.cvazer.tryout.pixelpioneer.service.model;
+package com.github.cvazer.tryout.pixelpioneer.api.dto;
 
 import com.github.cvazer.tryout.pixelpioneer.api.ApiResponse;
-import com.github.cvazer.tryout.pixelpioneer.api.dto.UserDto;
 import lombok.Getter;
 
 import java.io.Serializable;

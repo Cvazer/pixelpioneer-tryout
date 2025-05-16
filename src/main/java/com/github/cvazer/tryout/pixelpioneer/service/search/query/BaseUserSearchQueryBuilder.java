@@ -1,6 +1,6 @@
 package com.github.cvazer.tryout.pixelpioneer.service.search.query;
 
-import com.github.cvazer.tryout.pixelpioneer.service.model.SearchUserParams;
+import com.github.cvazer.tryout.pixelpioneer.api.dto.SearchUserParams;
 import com.github.cvazer.tryout.pixelpioneer.dao.entity.UserEntity;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.Specification;
