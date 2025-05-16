@@ -1,5 +1,6 @@
 package com.github.cvazer.tryout.pixelpioneer.service.facade;
 
+import com.github.cvazer.tryout.pixelpioneer.api.ApiException;
 import com.github.cvazer.tryout.pixelpioneer.api.dto.TransferRq;
 import com.github.cvazer.tryout.pixelpioneer.api.dto.TransferRs;
 import com.github.cvazer.tryout.pixelpioneer.api.mapper.UserMapper;
@@ -25,7 +26,11 @@ public class AccountFacade {
         var userEntity = userService.getCurrentUser();
         var balance =  userEntity.getAccount().getBalance();
 
-        accountService.transfer(rq.getRecipientId(), rq.getAmount());
+        try {
+            accountService.transfer(rq.getRecipientId(), rq.getAmount());
+        } catch (IllegalArgumentException e) {
+            throw new ApiException(false, 400, e);
+        }
 
         entityManager.refresh(userEntity);
         return new TransferRs(

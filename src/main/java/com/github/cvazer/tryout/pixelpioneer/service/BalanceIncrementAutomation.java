@@ -31,7 +31,7 @@ public class BalanceIncrementAutomation {
 
     @Transactional
     @Scheduled(fixedRate = 10, timeUnit = TimeUnit.SECONDS)
-    @CacheEvict(value = SEARCH_CACHE_KEY)
+    @CacheEvict(value = SEARCH_CACHE_KEY, allEntries = true)
     public void update() {
         log.trace("Auto increment account balance is running now");
         LocalDateTime lastRun = (LocalDateTime) template.opsForValue().get(LAST_RUN_KEY);

@@ -34,10 +34,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                     .antMatchers("/login").permitAll()
                     .antMatchers("/api/user/search").permitAll()
+                    .antMatchers(SWAGGER_ENDPIONTS).permitAll()
                     .antMatchers("/api/**").authenticated()
-                .and()
-                .authorizeHttpRequests()
-                .antMatchers(SWAGGER_ENDPIONTS).permitAll()
                 .and()
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
