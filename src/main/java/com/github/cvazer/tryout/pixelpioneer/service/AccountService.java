@@ -2,8 +2,6 @@ package com.github.cvazer.tryout.pixelpioneer.service;
 
 public interface AccountService {
 
-    // Округляю вверх, так как при банковских операциях обычно так и делают, на сколько мне известно.
-
     /**
      * <p>Transfers money from current user to specified one</p>
      * <p>Note: given amount will be rounded UP to precision of two decimal places</p>

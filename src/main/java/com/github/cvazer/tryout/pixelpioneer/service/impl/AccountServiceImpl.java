@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
-import static java.math.RoundingMode.DOWN;
+import static java.math.RoundingMode.HALF_UP;
 
 @Slf4j
 @Service
@@ -29,7 +29,7 @@ public class AccountServiceImpl implements AccountService {
             throw new IllegalArgumentException("[amount] must be equal to or greater than zero");
         }
 
-        var bigDecimalAmount = BigDecimal.valueOf(amount).setScale(2, DOWN);
+        var bigDecimalAmount = BigDecimal.valueOf(amount).setScale(2, HALF_UP);
 
         var userId = AuthUtils.getUserIdFromSecurityContext();
 
