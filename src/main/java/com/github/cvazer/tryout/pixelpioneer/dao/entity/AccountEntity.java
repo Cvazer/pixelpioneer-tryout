@@ -23,7 +23,7 @@ public class AccountEntity {
     private BigDecimal balance;
 
     @Column(insertable = false, updatable = false)
-    private long userId;
+     private Long userId;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
