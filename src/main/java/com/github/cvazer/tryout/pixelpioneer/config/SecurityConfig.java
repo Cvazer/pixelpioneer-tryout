@@ -33,6 +33,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests()
                     .antMatchers("/login").permitAll()
+                    .antMatchers("/api/user/search").permitAll()
                     .antMatchers("/api/**").authenticated()
                 .and()
                 .authorizeHttpRequests()
