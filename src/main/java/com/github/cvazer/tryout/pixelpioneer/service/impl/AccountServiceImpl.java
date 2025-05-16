@@ -32,6 +32,11 @@ public class AccountServiceImpl implements AccountService {
         var bigDecimalAmount = BigDecimal.valueOf(amount).setScale(2, DOWN);
 
         var userId = AuthUtils.getUserIdFromSecurityContext();
+
+        if (userId == recipientId) {
+            throw new IllegalArgumentException("Recipient and sender cannot be the same user");
+        }
+
         var userAccount = accountRepo.findByUser_Id(userId)
                 .orElseThrow(() -> new IllegalStateException("Unable to find account, user with broken one-to-one dependency"));
         var recipientAccount = accountRepo.findByUser_Id(recipientId)
