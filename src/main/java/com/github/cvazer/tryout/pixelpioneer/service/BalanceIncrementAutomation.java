@@ -23,6 +23,8 @@ import static com.github.cvazer.tryout.pixelpioneer.api.controller.UserControlle
 public class BalanceIncrementAutomation {
     public static final String INITIAL_BALANCE_KEY = "initial_balance";
     public static final String LAST_RUN_KEY = "last_run";
+     public static final double SUBSIDIES_FACTOR = 0.10;
+    public static final double SUBSIDIES_THRESHOLD_FACTOR = 2.07;
 
     private final AccountRepo accountRepo;
     private final RedisTemplate<String, Object> template;
@@ -57,9 +59,9 @@ public class BalanceIncrementAutomation {
                     .requireNonNull(template.opsForHash().get(INITIAL_BALANCE_KEY, account.getId()));
             initialBalance = initialBalance.setScale(2, RoundingMode.HALF_UP);
 
-            var amount = account.getBalance().multiply(BigDecimal.valueOf(0.10))
+            var amount = account.getBalance().multiply(BigDecimal.valueOf(SUBSIDIES_FACTOR))
                     .setScale(2, RoundingMode.HALF_UP);
-            var mostPossibleAmount = initialBalance.multiply(BigDecimal.valueOf(2.07))
+            var mostPossibleAmount = initialBalance.multiply(BigDecimal.valueOf(SUBSIDIES_THRESHOLD_FACTOR))
                     .setScale(2, RoundingMode.HALF_UP);
             var newBalance = account.getBalance().add(amount)
                     .setScale(2, RoundingMode.HALF_UP);
