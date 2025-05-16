@@ -30,6 +30,7 @@ public abstract class AbstractCollectionUserDataUpdateDelegate<T, K> extends Abs
             checkAvailability(it);
             mutableSource.add(convertToDataEntity(user, it));
         });
+
     }
 
     /**
