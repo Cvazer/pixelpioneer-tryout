@@ -58,10 +58,10 @@ docker compose up -d
 ### Как правильно тыкать?
 В приложении не реализована регистрация новых пользователей, но есть уже занесенные в базу.
 
-Пользователи в формате `{логин}:{пароль}`
-* `User1:password`
-* `User2:password`
-* `User3:password`
+Креды пользователей в формате `{логин}:{пароль}`
+* `user1-1@exmaple.com:password` или `79207865432:password`
+* `user2-1@exmaple.com:password` или `73955956735:password`
+* `user3-1@exmaple.com:password` или `74952520291:password`
 
 ### Как залогиниться
 На соотв. [эндпоинт](http://localhost:8080/swagger-ui/index.html#/login-controller/loginUsingPOST) стучимся данными 
